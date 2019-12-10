@@ -55,11 +55,13 @@ public class MainFrame extends javax.swing.JFrame {
         binarySortedResult = new javax.swing.JTextField();
         interpolationSortedResult = new javax.swing.JTextField();
         jumpSortedResult = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         searchingElement = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(2, 70, 114));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(dataSetCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 97, 35));
 
@@ -92,9 +94,19 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(linearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 220, -1));
 
         binarySearch.setText("Binary Search");
+        binarySearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                binarySearchActionPerformed(evt);
+            }
+        });
         getContentPane().add(binarySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 220, -1));
 
         jumpSearch.setText("Jump Search");
+        jumpSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jumpSearchActionPerformed(evt);
+            }
+        });
         getContentPane().add(jumpSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 220, -1));
 
         linearSortedSearch.setText("Sorted Linear Search");
@@ -130,6 +142,11 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 40));
 
         interpolationSearch.setText("Interpolation Search");
+        interpolationSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                interpolationSearchActionPerformed(evt);
+            }
+        });
         getContentPane().add(interpolationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 220, -1));
 
         interpolationSortedSearch.setText("Sorted Interpolation Search");
@@ -175,6 +192,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("In Milliseconds");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -191,6 +210,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(interpolationResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(binaryResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +233,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(interpolationSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jumpSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 310, 350));
@@ -228,6 +251,17 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, -1, 70));
+
+        searchingElement.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchingElementFocusLost(evt);
+            }
+        });
+        searchingElement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchingElementActionPerformed(evt);
+            }
+        });
         getContentPane().add(searchingElement, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 120, -1));
 
         jLabel2.setText("Searching Element");
@@ -237,45 +271,65 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public int intArray[];
-    
+    public int searchNumber;
+
 
     private void dataSetGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSetGenerateActionPerformed
+        dataSet.setText(null);
         int count = Integer.parseInt(dataSetCount.getText());
         System.out.println(count);
         intArray = new int[count];
         Random r = new Random();
-        Instant start = Instant.now();
         for (int i = 0; i < count; i++) {
             intArray[i] = r.nextInt(100);
         }
         for (int i = 0; i < intArray.length; i++) {
 //            System.out.println(intArray[i]);
-            dataSet.setText(dataSet.getText() + " , " + String.valueOf(intArray[i]));
+            dataSet.setText(dataSet.getText() + "  " + String.valueOf(intArray[i]));
         }
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        System.out.println("Time taken: " + timeElapsed.toMillis() + " milliseconds");
+
 //      printSet();
     }//GEN-LAST:event_dataSetGenerateActionPerformed
 
     private void linearSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSearchActionPerformed
-        // TODO add your handling code here:
+        Instant start = Instant.now();
+
+       
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        linearResult.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_linearSearchActionPerformed
 
     private void linearSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSortedSearchActionPerformed
-        // TODO add your handling code here:
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        linearSortedResult.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_linearSortedSearchActionPerformed
 
     private void binarySortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarySortedSearchActionPerformed
-        // TODO add your handling code here:
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        binarySortedResult.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_binarySortedSearchActionPerformed
 
     private void jumpSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSortedSearchActionPerformed
-        // TODO add your handling code here:
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        jumpSortedResult.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_jumpSortedSearchActionPerformed
 
     private void interpolationSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSortedSearchActionPerformed
-        // TODO add your handling code here:
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        interpolationSortedResult.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_interpolationSortedSearchActionPerformed
 
     private void linearResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearResultActionPerformed
@@ -295,15 +349,48 @@ public class MainFrame extends javax.swing.JFrame {
         dataSet.setText(null);
         for (int i = 0; i < intArray.length; i++) {
 //            System.out.println(intArray[i]);
-            dataSet.setText(dataSet.getText() + " , " + String.valueOf(intArray[i]));
+            dataSet.setText(dataSet.getText() + "  " + String.valueOf(intArray[i]));
         }
     }//GEN-LAST:event_sortButtonActionPerformed
-    
+
+    private void searchingElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchingElementActionPerformed
+
+    }//GEN-LAST:event_searchingElementActionPerformed
+
+    private void searchingElementFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchingElementFocusLost
+        searchNumber = Integer.parseInt(searchingElement.getText());
+        System.out.println(searchNumber);
+    }//GEN-LAST:event_searchingElementFocusLost
+
+    private void binarySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarySearchActionPerformed
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        binaryResult.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_binarySearchActionPerformed
+
+    private void interpolationSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSearchActionPerformed
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        interpolationResult.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_interpolationSearchActionPerformed
+
+    private void jumpSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSearchActionPerformed
+        Instant start = Instant.now();
+
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        jumpResult.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_jumpSearchActionPerformed
+
     public static void quickSort(int[] arr, int low, int high) {
         if (arr == null || arr.length == 0) {
             return;
         }
-        
+
         if (low >= high) {
             return;
         }
@@ -318,11 +405,11 @@ public class MainFrame extends javax.swing.JFrame {
             while (arr[i] < pivot) {
                 i++;
             }
-            
+
             while (arr[j] > pivot) {
                 j--;
             }
-            
+
             if (i <= j) {
                 int temp = arr[i];
                 arr[i] = arr[j];
@@ -336,12 +423,12 @@ public class MainFrame extends javax.swing.JFrame {
         if (low < j) {
             quickSort(arr, low, j);
         }
-        
+
         if (high > i) {
             quickSort(arr, i, high);
         }
     }
-    
+
     private void printSet() {
 //        for (int i = 0; i < intArray.length; i++) {
 //            System.out.println(intArray[i]);
@@ -404,6 +491,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton interpolationSortedSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
