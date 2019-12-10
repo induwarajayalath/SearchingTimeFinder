@@ -36,18 +36,34 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dataSet = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        linearSearch = new javax.swing.JButton();
+        binarySearch = new javax.swing.JButton();
+        jumpSearch = new javax.swing.JButton();
+        linearSortedSearch = new javax.swing.JButton();
+        binarySortedSearch = new javax.swing.JButton();
+        jumpSortedSearch = new javax.swing.JButton();
+        sortButton = new javax.swing.JButton();
+        interpolationSearch = new javax.swing.JButton();
+        interpolationSortedSearch = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        linearResult = new javax.swing.JTextField();
+        binaryResult = new javax.swing.JTextField();
+        interpolationResult = new javax.swing.JTextField();
+        jumpResult = new javax.swing.JTextField();
+        linearSortedResult = new javax.swing.JTextField();
+        binarySortedResult = new javax.swing.JTextField();
+        interpolationSortedResult = new javax.swing.JTextField();
+        jumpSortedResult = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        searchingElement = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(dataSetCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 97, 35));
 
+        dataSetGenerate.setBackground(new java.awt.Color(187, 253, 176));
         dataSetGenerate.setText("Generate Random Number set");
         dataSetGenerate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,52 +83,161 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 590, 120));
 
-        jButton1.setText("Linear Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        linearSearch.setText("Linear Search");
+        linearSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                linearSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 220, -1));
+        getContentPane().add(linearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 220, -1));
 
-        jButton2.setText("Binary Search");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 220, -1));
+        binarySearch.setText("Binary Search");
+        getContentPane().add(binarySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 220, -1));
 
-        jButton3.setText("Interpolation Search");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 220, -1));
+        jumpSearch.setText("Jump Search");
+        getContentPane().add(jumpSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 220, -1));
 
-        jButton4.setText("Sorted Linear Search");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        linearSortedSearch.setText("Sorted Linear Search");
+        linearSortedSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                linearSortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 220, -1));
+        getContentPane().add(linearSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 220, -1));
 
-        jButton5.setText("Sorted Binary Search");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        binarySortedSearch.setText("Sorted Binary Search");
+        binarySortedSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                binarySortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 220, -1));
+        getContentPane().add(binarySortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 220, -1));
 
-        jButton6.setText("Sorted Interpolation Search");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jumpSortedSearch.setText("Jump Search");
+        jumpSortedSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jumpSortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 220, -1));
+        getContentPane().add(jumpSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 220, -1));
 
-        jButton7.setText("Sort the dataset");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 40));
+        sortButton.setText("Sort the dataset");
+        sortButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 40));
+
+        interpolationSearch.setText("Interpolation Search");
+        getContentPane().add(interpolationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 220, -1));
+
+        interpolationSortedSearch.setText("Sorted Interpolation Search");
+        interpolationSortedSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                interpolationSortedSearchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(interpolationSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 220, -1));
+
+        jPanel1.setBackground(new java.awt.Color(237, 255, 135));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 270, 350));
+
+        jPanel2.setBackground(new java.awt.Color(252, 186, 237));
+
+        linearResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linearResultActionPerformed(evt);
+            }
+        });
+
+        interpolationResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                interpolationResultActionPerformed(evt);
+            }
+        });
+
+        linearSortedResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linearSortedResultActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(linearResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(interpolationSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jumpSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(binarySortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(linearSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jumpResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(interpolationResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(binaryResult, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(linearResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(binaryResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(interpolationResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jumpResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(linearSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(binarySortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(interpolationSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jumpSortedResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 310, 350));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, -1, 70));
+        getContentPane().add(searchingElement, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 120, -1));
+
+        jLabel2.setText("Searching Element");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public int intArray[];
-
+    
 
     private void dataSetGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSetGenerateActionPerformed
         int count = Integer.parseInt(dataSetCount.getText());
@@ -133,22 +258,90 @@ public class MainFrame extends javax.swing.JFrame {
 //      printSet();
     }//GEN-LAST:event_dataSetGenerateActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void linearSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_linearSearchActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void linearSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSortedSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_linearSortedSearchActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void binarySortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarySortedSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_binarySortedSearchActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jumpSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSortedSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jumpSortedSearchActionPerformed
 
+    private void interpolationSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSortedSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_interpolationSortedSearchActionPerformed
+
+    private void linearResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearResultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linearResultActionPerformed
+
+    private void interpolationResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationResultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_interpolationResultActionPerformed
+
+    private void linearSortedResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSortedResultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linearSortedResultActionPerformed
+
+    private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortButtonActionPerformed
+        quickSort(intArray, 0, intArray.length - 1);
+        dataSet.setText(null);
+        for (int i = 0; i < intArray.length; i++) {
+//            System.out.println(intArray[i]);
+            dataSet.setText(dataSet.getText() + " , " + String.valueOf(intArray[i]));
+        }
+    }//GEN-LAST:event_sortButtonActionPerformed
+    
+    public static void quickSort(int[] arr, int low, int high) {
+        if (arr == null || arr.length == 0) {
+            return;
+        }
+        
+        if (low >= high) {
+            return;
+        }
+
+        // pick the pivot
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
+
+        // make left < pivot and right > pivot
+        int i = low, j = high;
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
+            }
+            
+            while (arr[j] > pivot) {
+                j--;
+            }
+            
+            if (i <= j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        // recursively sort two sub parts
+        if (low < j) {
+            quickSort(arr, low, j);
+        }
+        
+        if (high > i) {
+            quickSort(arr, i, high);
+        }
+    }
+    
     private void printSet() {
 //        for (int i = 0; i < intArray.length; i++) {
 //            System.out.println(intArray[i]);
@@ -198,17 +391,32 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField binaryResult;
+    private javax.swing.JButton binarySearch;
+    private javax.swing.JTextField binarySortedResult;
+    private javax.swing.JButton binarySortedSearch;
     private javax.swing.JTextArea dataSet;
     private javax.swing.JTextField dataSetCount;
     private javax.swing.JToggleButton dataSetGenerate;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JTextField interpolationResult;
+    private javax.swing.JButton interpolationSearch;
+    private javax.swing.JTextField interpolationSortedResult;
+    private javax.swing.JButton interpolationSortedSearch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jumpResult;
+    private javax.swing.JButton jumpSearch;
+    private javax.swing.JTextField jumpSortedResult;
+    private javax.swing.JButton jumpSortedSearch;
+    private javax.swing.JTextField linearResult;
+    private javax.swing.JButton linearSearch;
+    private javax.swing.JTextField linearSortedResult;
+    private javax.swing.JButton linearSortedSearch;
+    private javax.swing.JTextField searchingElement;
+    private javax.swing.JButton sortButton;
     // End of variables declaration//GEN-END:variables
 }
