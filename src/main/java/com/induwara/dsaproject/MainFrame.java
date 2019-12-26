@@ -8,6 +8,7 @@ package com.induwara.dsaproject;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -272,16 +273,17 @@ public class MainFrame extends javax.swing.JFrame {
 
     public int intArray[];
     public int searchNumber;
+    public int count;
 
 
     private void dataSetGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSetGenerateActionPerformed
         dataSet.setText(null);
-        int count = Integer.parseInt(dataSetCount.getText());
+        count = Integer.parseInt(dataSetCount.getText());
         System.out.println(count);
         intArray = new int[count];
         Random r = new Random();
         for (int i = 0; i < count; i++) {
-            intArray[i] = r.nextInt(100);
+            intArray[i] = r.nextInt(1000);
         }
         for (int i = 0; i < intArray.length; i++) {
 //            System.out.println(intArray[i]);
@@ -292,44 +294,43 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_dataSetGenerateActionPerformed
 
     private void linearSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
 
-       
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        linearResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        linearResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_linearSearchActionPerformed
 
     private void linearSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSortedSearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        linearSortedResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        linearSortedResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_linearSortedSearchActionPerformed
 
     private void binarySortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarySortedSearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        binarySortedResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        binarySortedResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_binarySortedSearchActionPerformed
 
     private void jumpSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSortedSearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        jumpSortedResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        jumpSortedResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_jumpSortedSearchActionPerformed
 
     private void interpolationSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSortedSearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        interpolationSortedResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        interpolationSortedResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_interpolationSortedSearchActionPerformed
 
     private void linearResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearResultActionPerformed
@@ -363,27 +364,48 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchingElementFocusLost
 
     private void binarySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarySearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
+        int tempArr[] = intArray;
+        quickSort(tempArr, 0, tempArr.length - 1);
+        int first = 0;
+        int last = tempArr.length - 1;
+        int mid = (first + last) / 2;
+        int imput = Integer.valueOf(searchingElement.getText());
+        while (first <= last) {
+            if (tempArr[mid] < imput) {
+                first = mid + 1;
+            } else if (tempArr[mid] == imput) {
+                break;
+            } else {
+                last = mid - 1;
+            }
+            mid = (first + last) / 2;
+        }
+        if (first > last) {
+            showMessageDialog(null, "Enter a number in the list");
+        }
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        binaryResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+//        System.out.println(timeElapsed);
+        binaryResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_binarySearchActionPerformed
 
-    private void interpolationSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSearchActionPerformed
-        Instant start = Instant.now();
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        interpolationResult.setText(String.valueOf(timeElapsed.toMillis()));
+    private void interpolationSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSearchActionPerformed
+        long start = System.nanoTime();
+
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        interpolationResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_interpolationSearchActionPerformed
 
     private void jumpSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSearchActionPerformed
-        Instant start = Instant.now();
+        long start = System.nanoTime();
 
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        jumpResult.setText(String.valueOf(timeElapsed.toMillis()));
+        long end = System.nanoTime();
+        long timeElapsed = end - start;
+        jumpResult.setText(String.valueOf(timeElapsed));
     }//GEN-LAST:event_jumpSearchActionPerformed
 
     public static void quickSort(int[] arr, int low, int high) {
