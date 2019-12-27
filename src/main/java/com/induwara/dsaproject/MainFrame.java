@@ -7,6 +7,7 @@ package com.induwara.dsaproject;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Random;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -47,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
         interpolationSearch = new javax.swing.JButton();
         interpolationSortedSearch = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         linearResult = new javax.swing.JTextField();
         binaryResult = new javax.swing.JTextField();
@@ -60,6 +62,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         searchingElement = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        finalResult = new javax.swing.JLabel();
+        bestIs = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(2, 70, 114));
@@ -92,7 +99,7 @@ public class MainFrame extends javax.swing.JFrame {
                 linearSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(linearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 220, -1));
+        getContentPane().add(linearSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 220, -1));
 
         binarySearch.setText("Binary Search");
         binarySearch.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +107,7 @@ public class MainFrame extends javax.swing.JFrame {
                 binarySearchActionPerformed(evt);
             }
         });
-        getContentPane().add(binarySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 220, -1));
+        getContentPane().add(binarySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 220, -1));
 
         jumpSearch.setText("Jump Search");
         jumpSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +115,7 @@ public class MainFrame extends javax.swing.JFrame {
                 jumpSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jumpSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 220, -1));
+        getContentPane().add(jumpSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 220, -1));
 
         linearSortedSearch.setText("Sorted Linear Search");
         linearSortedSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
                 linearSortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(linearSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 220, -1));
+        getContentPane().add(linearSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 220, -1));
 
         binarySortedSearch.setText("Sorted Binary Search");
         binarySortedSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -124,15 +131,15 @@ public class MainFrame extends javax.swing.JFrame {
                 binarySortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(binarySortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 220, -1));
+        getContentPane().add(binarySortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 220, -1));
 
-        jumpSortedSearch.setText("Jump Search");
+        jumpSortedSearch.setText("Sorted Jump Search");
         jumpSortedSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jumpSortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jumpSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 220, -1));
+        getContentPane().add(jumpSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, 220, -1));
 
         sortButton.setText("Sort the dataset");
         sortButton.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +155,7 @@ public class MainFrame extends javax.swing.JFrame {
                 interpolationSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(interpolationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 220, -1));
+        getContentPane().add(interpolationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 220, -1));
 
         interpolationSortedSearch.setText("Sorted Interpolation Search");
         interpolationSortedSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +163,7 @@ public class MainFrame extends javax.swing.JFrame {
                 interpolationSortedSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(interpolationSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 220, -1));
+        getContentPane().add(interpolationSortedSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 220, -1));
 
         jPanel1.setBackground(new java.awt.Color(237, 255, 135));
 
@@ -164,14 +171,19 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 270, 350));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 270, 350));
 
         jPanel2.setBackground(new java.awt.Color(252, 186, 237));
 
@@ -193,7 +205,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("In Milliseconds");
+        jLabel3.setText("In Nanoseconds");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -238,20 +250,20 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 310, 350));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 310, 350));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 258, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 70, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, -1, 70));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, -1, 70));
 
         searchingElement.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -263,10 +275,27 @@ public class MainFrame extends javax.swing.JFrame {
                 searchingElementActionPerformed(evt);
             }
         });
-        getContentPane().add(searchingElement, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 120, -1));
+        getContentPane().add(searchingElement, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 120, -1));
 
         jLabel2.setText("Searching Element");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+
+        jLabel4.setText("© Induwara Jayalath");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(88, 218, 49));
+        jButton1.setText("Run All and find the best");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 280, 120));
+
+        jLabel5.setText("Individual Search");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+        getContentPane().add(finalResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 310, 30));
+        getContentPane().add(bestIs, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,16 +303,28 @@ public class MainFrame extends javax.swing.JFrame {
     public int intArray[];
     public int searchNumber;
     public int count;
+    public int ls;
+    public int bs;
+    public int is;
+    public int js;
+    public int sls;
+    public int sbs;
+    public int sis;
+    public int sjs;
 
 
     private void dataSetGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSetGenerateActionPerformed
+        if (dataSetCount.getText().equals("")) {
+            showMessageDialog(null, "Enter the count of the dataset");
+            return;
+        }
         dataSet.setText(null);
         count = Integer.parseInt(dataSetCount.getText());
         System.out.println(count);
         intArray = new int[count];
         Random r = new Random();
         for (int i = 0; i < count; i++) {
-            intArray[i] = r.nextInt(1000);
+            intArray[i] = r.nextInt(100000);
         }
         for (int i = 0; i < intArray.length; i++) {
 //            System.out.println(intArray[i]);
@@ -296,41 +337,149 @@ public class MainFrame extends javax.swing.JFrame {
     private void linearSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSearchActionPerformed
         long start = System.nanoTime();
 
+        int flag = 0;
+        int input = Integer.valueOf(searchingElement.getText());;
+        for (int i = 0; i < intArray.length; i++) {
+            if (intArray[i] == input) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            showMessageDialog(null, "Enter a number in the list");
+        }
+
         long end = System.nanoTime();
         long timeElapsed = end - start;
         linearResult.setText(String.valueOf(timeElapsed));
+        ls = (int) timeElapsed;
     }//GEN-LAST:event_linearSearchActionPerformed
 
     private void linearSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearSortedSearchActionPerformed
+//        sortButtonActionPerformed(evt);
+
         long start = System.nanoTime();
+
+        int flag = 0;
+        int input = Integer.valueOf(searchingElement.getText());
+        for (int i = 0; i < intArray.length; i++) {
+            if (intArray[i] == input) { 
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            showMessageDialog(null, "Enter a number in the list");
+        }
 
         long end = System.nanoTime();
         long timeElapsed = end - start;
         linearSortedResult.setText(String.valueOf(timeElapsed));
+        sls = (int) timeElapsed;
     }//GEN-LAST:event_linearSortedSearchActionPerformed
 
     private void binarySortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarySortedSearchActionPerformed
+//        sortButtonActionPerformed(evt);
+
         long start = System.nanoTime();
+
+        int first = 0;
+        int last = intArray.length - 1;
+        int mid = (first + last) / 2;
+        int imput = Integer.valueOf(searchingElement.getText());
+        while (first <= last) {
+            if (intArray[mid] < imput) {
+                first = mid + 1;
+            } else if (intArray[mid] == imput) {
+                break;
+            } else {
+                last = mid - 1;
+            }
+            mid = (first + last) / 2;
+        }
+        if (first > last) {
+            showMessageDialog(null, "Enter a number in the list");
+        }
 
         long end = System.nanoTime();
         long timeElapsed = end - start;
         binarySortedResult.setText(String.valueOf(timeElapsed));
+        sbs = (int) timeElapsed;
     }//GEN-LAST:event_binarySortedSearchActionPerformed
 
     private void jumpSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSortedSearchActionPerformed
+//        sortButtonActionPerformed(evt);
         long start = System.nanoTime();
+
+        int tempArr[] = intArray;
+//        quickSort(tempArr, 0, tempArr.length - 1);
+        int arrlength = tempArr.length;
+        int jumpsize = (int) Math.floor(Math.sqrt(arrlength));
+        int input = Integer.valueOf(searchingElement.getText());
+        int prevPosition = 0;
+
+        while (tempArr[Math.min(jumpsize, arrlength) - 1] < input) {
+            prevPosition = jumpsize;
+            jumpsize += (int) Math.floor(Math.sqrt(arrlength));
+            if (prevPosition >= input) {
+                showMessageDialog(null, "Enter a number in the list");
+                break;
+            }
+        }
+        while (tempArr[prevPosition] < input) {
+            prevPosition++;
+            if (prevPosition == Math.min(jumpsize, arrlength)) {
+                showMessageDialog(null, "Enter a number in the list");
+                break;
+            }
+        }
+
+        // If element is found 
+        if (tempArr[prevPosition] == input) {
+            System.out.println("Found");
+        }
 
         long end = System.nanoTime();
         long timeElapsed = end - start;
         jumpSortedResult.setText(String.valueOf(timeElapsed));
+        sjs = (int) timeElapsed;
     }//GEN-LAST:event_jumpSortedSearchActionPerformed
 
     private void interpolationSortedSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSortedSearchActionPerformed
+//        sortButtonActionPerformed(evt);
         long start = System.nanoTime();
+        int tempArr[] = intArray;
+        int input = Integer.valueOf(searchingElement.getText());
+        int lowerIndex = 0;
+        int middle = 0;
+        int higherIndex = tempArr.length - 1;
+        int index = 0;
+        int flag = 0;
+
+        while (lowerIndex <= higherIndex) {
+            middle = (int) (lowerIndex + (((double) (higherIndex - lowerIndex) / (tempArr[higherIndex] - tempArr[lowerIndex])) * (input - tempArr[lowerIndex])));
+            // above equation is given by jeewani madam
+
+            if (tempArr[middle] == input) {
+                index = middle;
+                flag = 1;
+                break;
+            } else {
+                if (tempArr[middle] < input) {
+                    lowerIndex = middle + 1;
+                } else {
+                    higherIndex = middle - 1;
+                }
+            }
+        }
+        if (flag == 0) {
+            showMessageDialog(null, "Enter a number in the list");
+        }
 
         long end = System.nanoTime();
         long timeElapsed = end - start;
         interpolationSortedResult.setText(String.valueOf(timeElapsed));
+        sis = (int) timeElapsed;
     }//GEN-LAST:event_interpolationSortedSearchActionPerformed
 
     private void linearResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linearResultActionPerformed
@@ -389,24 +538,121 @@ public class MainFrame extends javax.swing.JFrame {
         long timeElapsed = end - start;
 //        System.out.println(timeElapsed);
         binaryResult.setText(String.valueOf(timeElapsed));
+        bs = (int) timeElapsed;
     }//GEN-LAST:event_binarySearchActionPerformed
 
 
     private void interpolationSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interpolationSearchActionPerformed
         long start = System.nanoTime();
 
+        int tempArr[] = intArray;
+        int input = Integer.valueOf(searchingElement.getText());
+        int lowerIndex = 0;
+        int middle = 0;
+        int higherIndex = tempArr.length - 1;
+        int index = 0;
+        int flag = 0;
+
+        while (lowerIndex <= higherIndex) {
+            middle = (int) (lowerIndex + (((double) (higherIndex - lowerIndex) / (tempArr[higherIndex] - tempArr[lowerIndex])) * (input - tempArr[lowerIndex])));
+            // above equation is given by jeewani madam
+
+            if (tempArr[middle] == input) {
+                index = middle;
+                flag = 1;
+                break;
+            } else {
+                if (tempArr[middle] < input) {
+                    lowerIndex = middle + 1;
+                } else {
+                    higherIndex = middle - 1;
+                }
+            }
+        }
+        if (flag == 0) {
+            showMessageDialog(null, "Enter a number in the list");
+        }
+
         long end = System.nanoTime();
         long timeElapsed = end - start;
         interpolationResult.setText(String.valueOf(timeElapsed));
+        is = (int) timeElapsed;
     }//GEN-LAST:event_interpolationSearchActionPerformed
 
     private void jumpSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpSearchActionPerformed
         long start = System.nanoTime();
+        int tempArr[] = intArray;
+        quickSort(tempArr, 0, tempArr.length - 1);
+        int arrlength = tempArr.length;
+        int jumpsize = (int) Math.floor(Math.sqrt(arrlength));
+        int input = Integer.valueOf(searchingElement.getText());
+        int prevPosition = 0;
+
+        while (tempArr[Math.min(jumpsize, arrlength) - 1] < input) {
+            prevPosition = jumpsize;
+            jumpsize += (int) Math.floor(Math.sqrt(arrlength));
+            if (prevPosition >= input) {
+                showMessageDialog(null, "Enter a number in the list");
+                break;
+            }
+        }
+        while (tempArr[prevPosition] < input) {
+            prevPosition++;
+            if (prevPosition == Math.min(jumpsize, arrlength)) {
+                showMessageDialog(null, "Enter a number in the list");
+                break;
+            }
+        }
+
+        // If element is found 
+        if (tempArr[prevPosition] == input) {
+            System.out.println("Found");
+        }
 
         long end = System.nanoTime();
         long timeElapsed = end - start;
         jumpResult.setText(String.valueOf(timeElapsed));
+        js = (int) timeElapsed;
     }//GEN-LAST:event_jumpSearchActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+//        System.out.println(searchingElement.getText());
+        if (searchingElement.getText().equals("")) {
+            showMessageDialog(null, "Enter a number to search whis is in the list");
+            return;
+        }
+        bestIs.setText("The best time gave by - ");
+        linearSearchActionPerformed(evt);
+        binarySearchActionPerformed(evt);
+        interpolationSearchActionPerformed(evt);
+        jumpSearchActionPerformed(evt);
+        sortButtonActionPerformed(evt);
+        linearSortedSearchActionPerformed(evt);
+        binarySortedSearchActionPerformed(evt);
+        interpolationSortedSearchActionPerformed(evt);
+        jumpSortedSearchActionPerformed(evt);
+        int[] nums = {ls, bs, is, js, sls, sbs, sis, sjs};
+        Arrays.sort(nums);
+        System.out.println(nums[0]);
+        if (ls == nums[0]) {
+            finalResult.setText("Linear Search");
+        } else if (bs == nums[0]) {
+            finalResult.setText("Binary Search");
+        } else if (is == nums[0]) {
+            finalResult.setText("Interpolation Search");
+        } else if (js == nums[0]) {
+            finalResult.setText("Jump Search");
+        } else if (sls == nums[0]) {
+            finalResult.setText("Sorted Linear Search");
+        } else if (sbs == nums[0]) {
+            finalResult.setText("Sorted Binary Search");
+        } else if (sis == nums[0]) {
+            finalResult.setText("Sorted Interpolation Search");
+        } else if (sjs == nums[0]) {
+            finalResult.setText("Sorted Jump Search");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void quickSort(int[] arr, int low, int high) {
         if (arr == null || arr.length == 0) {
@@ -427,11 +673,9 @@ public class MainFrame extends javax.swing.JFrame {
             while (arr[i] < pivot) {
                 i++;
             }
-
             while (arr[j] > pivot) {
                 j--;
             }
-
             if (i <= j) {
                 int temp = arr[i];
                 arr[i] = arr[j];
@@ -440,7 +684,6 @@ public class MainFrame extends javax.swing.JFrame {
                 j--;
             }
         }
-
         // recursively sort two sub parts
         if (low < j) {
             quickSort(arr, low, j);
@@ -500,6 +743,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bestIs;
     private javax.swing.JTextField binaryResult;
     private javax.swing.JButton binarySearch;
     private javax.swing.JTextField binarySortedResult;
@@ -507,17 +751,22 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea dataSet;
     private javax.swing.JTextField dataSetCount;
     private javax.swing.JToggleButton dataSetGenerate;
+    private javax.swing.JLabel finalResult;
     private javax.swing.JTextField interpolationResult;
     private javax.swing.JButton interpolationSearch;
     private javax.swing.JTextField interpolationSortedResult;
     private javax.swing.JButton interpolationSortedSearch;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jumpResult;
     private javax.swing.JButton jumpSearch;
     private javax.swing.JTextField jumpSortedResult;
